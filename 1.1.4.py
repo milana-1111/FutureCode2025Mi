@@ -1,53 +1,74 @@
-x = -10
-y = -5
-result = x > y
+x = 15
+result = (x > 10) and (x < 20)
 print(result)
 
-age = 15
-if age >= 16:
-    print("Можно получить права")
+coins = -35
+if coins <= 20:
+    status = "гоблин"
+elif coins <= 50:
+    status = "орк"
+elif coins <= 75:
+    status = "эльф"
 else:
-    print("Нужно подождать")
+    status = "гном"
 
-    a = 14
-    n = a // 4
-    print(n)
+text = input("введите строку для проверки палиндрома ")
+text = text.lower()
+text = text.replace(" ", "")
+reversed_text = text[::-1]
+if reversed_text == text:
+    print('палиндром')
+else:
+    print('не палиндром')
 
-    a = 43
-    b = 96
-    a = a % 3 + b // 4
-    z = a + b // 10 % 3
-    print(z)
+a = int(input("введите значение стороны a = "))
+b = int(input("введите значение стороны b = "))
+c = int(input("введите значение стороны c = "))
+if a**2 + b**2 == c**2:
+    print("прямоугольник")
 
-    n = int(input())
-    print(n / 200)
+elif a**2 + b**2 > c**2:
+    print("остроульник")
 
-    x = 12
-    y = 8
-    if x > y:
-        result = x - y
-    else:
-        result = y - x
-    if result > 0:
-        result = result + 10
-    else:
-        result = result - 10
+elif a**2 + c**2 < b**2:
+    print("тупоугольник")
 
-        name1 = "Anna"
-        name2 = "Anna"
-        if name1 == name2:
-            check = True
+elif a+b**2 < c**2:
+    print("не существует")
+
+
+    number = 36
+    if number % 2 == 0 and number % 3 == 0:
+        if number > 30:
+            result = number // 6
         else:
-            check = False
-        if check:
-            answer = "Yes"
+            result = number * 2
+    else:
+        if number % 2 == 0:
+            result = number + 10
         else:
-            answer = "No"
+            result = number - 5
+print(result)
 
-            n = int(input())
-            if n >= 5:
-                print("Добряк!")
-            elif 5 > n > 2:
-                print("Помогатор!")
-            else:
-                print("Безразличник!")
+score = 85
+if score < 60 or score > 90:
+    if score < 60:
+        grade = "F"
+    else:
+        grade = "A"
+else:
+    if score >= 80:
+        grade = "B"
+    else:
+        grade = "C"
+if grade == "A" or grade == "B":
+    status = "Pass"
+else:
+    status = "Fail"
+
+print(grade, status)
+
+a = int(input())
+k = 4
+s = a * k
+print(s)
