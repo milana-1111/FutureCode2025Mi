@@ -1,22 +1,22 @@
-# 0-30 -без сознания 31-70 ранен 71-90 - легкое недомогание 91 здоров
 from multiprocessing.connection import answer_challenge
+from random import randint
 
-health = int(input("Ведите уровень здоровья "))
-if health >=90:
-    print('персонаж здоров')
-elif 70 <= health < 90:
-    print('нужно выпить зелеье, согласны? (Y/N)')
-    answer = input()
-    if answer.lower() == 'y':
-        health += 10
-        print('')
+hp = 100
+rooms = 3
+rooms_content = ['лава' , 'пустая' , 'орк']
 
-elif 30 <= health < 70:
-    print('вы ранены. использовать аптечку? (Y/N) ')
-    answer = input()
-    if answer.lower() == 'y':
-        health += 30
-        print('здоровье увеличено до ' , health)
+while hp > 0 and rooms > 0:
+    print('(перед вами три двери. в какую войдете? (1/2/3) )')
+    answer = int(input())
+    if 0 < answer <= 3:
+        content = rooms_content[randint(0, len(rooms_content) - 1)]
+        print('вам открылась комната - ')
+        if content !='пустая комната':
+            damage = randint(10, 31)
+            hp -= damage
+        print("вам нанесен урон" , damage, "осталось" , hp, "здоровье")
+
+    if hp > 0:
+        print('вы победили!')
     else:
-        health -= 30
-        print('')
+        print('вы проиграли!')
